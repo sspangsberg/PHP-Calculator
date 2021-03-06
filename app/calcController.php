@@ -15,10 +15,10 @@ if (isset($_POST['submit'])) {
         } else if ($_POST['operation'] == 'times') {
             $total = $calculator->multiply($_POST['number1'], $_POST['number2']);
         } else if ($_POST['operation'] == 'divided by') {
-            $total = $calculator->divide($total = $_POST['number1'], $_POST['number2']);
+            $total = $calculator->divide($_POST['number1'], $_POST['number2']);
         }
 
-        // Print total to the browser
+        // 
         echo "<h1>{$_POST['number1']} {$_POST['operation']} {$_POST['number2']} equals {$total}</h1>";
 
     } else {
