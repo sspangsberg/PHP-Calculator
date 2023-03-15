@@ -7,6 +7,7 @@ use \PHPUnit\Framework\TestCase;
 class CalculatorControllerTest extends TestCase
 {
     private $calculator;
+    private $controller;
 
     public function setUp(): void
     {
