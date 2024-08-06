@@ -1,4 +1,5 @@
-<?php require_once "./Calculator.php";
+<?php 
+require_once "./Calculator.php";
 
 // If the submit button has been pressed
 if (isset($_POST['submit'])) {
