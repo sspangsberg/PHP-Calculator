@@ -1,0 +1,94 @@
+vendor/bin/phpcs app/
+
+FILE: app/index.php
+----------------------------------------------------------------------------------------------
+FOUND 26 ERRORS AND 2 WARNINGS AFFECTING 25 LINES
+----------------------------------------------------------------------------------------------
+  3 | ERROR   | [x] Spaces must be used to indent lines; tabs are not allowed
+  4 | ERROR   | [x] Spaces must be used to indent lines; tabs are not allowed
+  5 | ERROR   | [x] Spaces must be used to indent lines; tabs are not allowed
+  6 | ERROR   | [x] Spaces must be used to indent lines; tabs are not allowed
+  7 | ERROR   | [x] Spaces must be used to indent lines; tabs are not allowed
+  8 | WARNING | [ ] Line exceeds 85 characters; contains 119 characters
+  8 | ERROR   | [x] Spaces must be used to indent lines; tabs are not allowed
+  9 | ERROR   | [x] Spaces must be used to indent lines; tabs are not allowed
+ 10 | ERROR   | [x] Spaces must be used to indent lines; tabs are not allowed
+ 11 | ERROR   | [x] Spaces must be used to indent lines; tabs are not allowed
+ 12 | ERROR   | [x] Spaces must be used to indent lines; tabs are not allowed
+ 14 | ERROR   | [x] Spaces must be used to indent lines; tabs are not allowed
+ 14 | ERROR   | [ ] Missing file doc comment
+ 16 | ERROR   | [x] Spaces must be used to indent lines; tabs are not allowed
+ 17 | ERROR   | [x] Spaces must be used to indent lines; tabs are not allowed
+ 18 | ERROR   | [x] Spaces must be used to indent lines; tabs are not allowed
+ 19 | ERROR   | [x] Spaces must be used to indent lines; tabs are not allowed
+ 20 | ERROR   | [x] Spaces must be used to indent lines; tabs are not allowed
+ 21 | ERROR   | [x] Spaces must be used to indent lines; tabs are not allowed
+ 22 | ERROR   | [x] Spaces must be used to indent lines; tabs are not allowed
+ 23 | ERROR   | [x] Spaces must be used to indent lines; tabs are not allowed
+ 24 | ERROR   | [x] Spaces must be used to indent lines; tabs are not allowed
+ 25 | ERROR   | [x] Spaces must be used to indent lines; tabs are not allowed
+ 26 | WARNING | [ ] Line exceeds 85 characters; contains 89 characters
+ 26 | ERROR   | [x] Spaces must be used to indent lines; tabs are not allowed
+ 27 | ERROR   | [x] Spaces must be used to indent lines; tabs are not allowed
+ 28 | ERROR   | [x] Spaces must be used to indent lines; tabs are not allowed
+ 29 | ERROR   | [x] Spaces must be used to indent lines; tabs are not allowed
+----------------------------------------------------------------------------------------------
+PHPCBF CAN FIX THE 25 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+----------------------------------------------------------------------------------------------
+
+
+FILE: app/calcController.php
+-------------------------------------------------------------------------------------------------------
+FOUND 1 ERROR AND 1 WARNING AFFECTING 2 LINES
+-------------------------------------------------------------------------------------------------------
+  1 | ERROR   | Missing file doc comment
+ 23 | WARNING | Line exceeds 85 characters; contains 102 characters
+-------------------------------------------------------------------------------------------------------
+
+
+FILE: app/Calculator.php
+---------------------------------------------------------------------------------------------------
+FOUND 37 ERRORS AFFECTING 22 LINES
+---------------------------------------------------------------------------------------------------
+  2 | ERROR | [ ] Missing file doc comment
+  5 | ERROR | [ ] Missing doc comment for class Calculator
+  5 | ERROR | [x] Opening brace of a class must be on the line after the definition
+  7 | ERROR | [ ] Doc comment for parameter "$num1" missing
+  7 | ERROR | [ ] Doc comment for parameter "$num2" missing
+  9 | ERROR | [x] There must be exactly one blank line before the tags in a doc comment
+  9 | ERROR | [ ] Doc comment for parameter $num1, does not match actual variable name $num1
+  9 | ERROR | [x] Tag value for @param tag indented incorrectly; expected 2 spaces but found 1
+ 10 | ERROR | [ ] Tag @return cannot be grouped with parameter tags in a doc comment
+ 12 | ERROR | [x] Opening brace should be on a new line
+ 16 | ERROR | [ ] Doc comment for parameter "$num1" missing
+ 16 | ERROR | [ ] Doc comment for parameter "$num2" missing
+ 18 | ERROR | [x] There must be exactly one blank line before the tags in a doc comment
+ 18 | ERROR | [ ] Doc comment for parameter $num1, does not match actual variable name $num1
+ 18 | ERROR | [x] Tag value for @param tag indented incorrectly; expected 2 spaces but found 1
+ 19 | ERROR | [ ] Tag @return cannot be grouped with parameter tags in a doc comment
+ 21 | ERROR | [x] Opening brace should be on a new line
+ 25 | ERROR | [ ] Doc comment for parameter "$num1" missing
+ 25 | ERROR | [ ] Doc comment for parameter "$num2" missing
+ 27 | ERROR | [x] There must be exactly one blank line before the tags in a doc comment
+ 27 | ERROR | [ ] Doc comment for parameter $num1, does not match actual variable name $num1
+ 27 | ERROR | [x] Tag value for @param tag indented incorrectly; expected 2 spaces but found 1
+ 28 | ERROR | [ ] Tag @return cannot be grouped with parameter tags in a doc comment
+ 30 | ERROR | [x] Opening brace should be on a new line
+ 34 | ERROR | [ ] Doc comment for parameter "$num1" missing
+ 34 | ERROR | [ ] Doc comment for parameter "$num2" missing
+ 36 | ERROR | [x] There must be exactly one blank line before the tags in a doc comment
+ 36 | ERROR | [ ] Doc comment for parameter $num1, does not match actual variable name $num1
+ 36 | ERROR | [x] Tag value for @param tag indented incorrectly; expected 2 spaces but found 1
+ 37 | ERROR | [ ] Tag @return cannot be grouped with parameter tags in a doc comment
+ 39 | ERROR | [x] Opening brace should be on a new line
+ 45 | ERROR | [x] There must be exactly one blank line before the tags in a doc comment
+ 45 | ERROR | [x] Tag value for @param tag indented incorrectly; expected 2 spaces but found 1
+ 46 | ERROR | [ ] Tag @return cannot be grouped with parameter tags in a doc comment
+ 55 | ERROR | [x] There must be exactly one blank line before the tags in a doc comment
+ 55 | ERROR | [x] Tag value for @param tag indented incorrectly; expected 2 spaces but found 1
+ 56 | ERROR | [ ] Tag @return cannot be grouped with parameter tags in a doc comment
+---------------------------------------------------------------------------------------------------
+PHPCBF CAN FIX THE 17 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+---------------------------------------------------------------------------------------------------
+
+Time: 182ms; Memory: 6MB
