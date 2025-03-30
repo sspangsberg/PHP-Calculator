@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<ruleset name="MyProject">
+    <!-- Scan these directories -->
+    <file>app</file>
+    
+    <!-- Use PSR12 as base standard -->
+    <rule ref="PSR12"/>
+    
+    <!-- Disable the redundant class tag checks -->
+    <rule ref="PEAR.Commenting.ClassComment">
+        <exclude name="PEAR.Commenting.ClassComment.MissingTags"/>
+    </rule>
+    
+    <!-- Customize line length -->
+    <rule ref="Generic.Files.LineLength">
+        <properties>
+            <property name="lineLimit" value="120"/>
+        </properties>
+    </rule>
+
+</ruleset>

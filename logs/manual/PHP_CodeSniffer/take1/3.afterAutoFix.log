@@ -1,0 +1,39 @@
+vendor/bin/phpcs app/
+
+FILE: app/index.php
+----------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+----------------------------------------------------------------------------------------------
+ 11 | WARNING | PHP version not specified
+----------------------------------------------------------------------------------------------
+
+
+FILE: app/calcController.php
+-------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+-------------------------------------------------------------------------------------------------------
+ 11 | WARNING | PHP version not specified
+-------------------------------------------------------------------------------------------------------
+
+
+FILE: app/Calculator.php
+---------------------------------------------------------------------------------------------------
+FOUND 5 ERRORS AFFECTING 1 LINE
+---------------------------------------------------------------------------------------------------
+ 17 | ERROR | Missing @category tag in class comment
+ 17 | ERROR | Missing @package tag in class comment
+ 17 | ERROR | Missing @author tag in class comment
+ 17 | ERROR | Missing @license tag in class comment
+ 17 | ERROR | Missing @link tag in class comment
+---------------------------------------------------------------------------------------------------
+
+Time: 54ms; Memory: 6MB
+
+Conclusion: The False Positive Issue
+
+    PHPCS is incorrectly looking for class-level tags when they're already properly defined at the file level
+    The docblocks are actually correct - the tags only need to appear once per file
+
+Solutions:
+Quick Fix (Suppress False Errors)
+is to playaround with phpcs.xml

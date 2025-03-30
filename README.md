@@ -1,28 +1,36 @@
 # PHP-Calculator
-Simple PHP Calculator to use and do Unit testing, Fuzz testing
 
-Usage:
-use your webserver and visit /app/index.php to get the web UI
+## Overview
+PHP-Calculator is a simple yet effective PHP-based calculator that allows for unit testing and fuzz testing. This project is designed for developers who want to experiment with PHP testing methodologies, including PHPUnit, fuzz testing, and PHP_CodeSniffer for linting.
 
-Unit testing: 
-a) run phpunit test installed via shell cmd: 
-bash: vendor/bin/phpunit
-should return No tests executed! if you are just starting, i.e. no tests are developed
+## Usage
+To use the calculator, simply deploy it on your web server and visit:
+```
+localhost:8000/app/index.php
+```
+This will open the web UI for performing calculations.
 
-b) when a test is ready, run same bash cmd:
+## Unit Testing
+### Running PHPUnit Tests
+Ensure PHPUnit is installed and execute the following command:
+```bash
 vendor/bin/phpunit
+```
+If no tests are present, the output will indicate:
+```
+No tests executed!
+```
 
-it's probably more interesting to see the output with methods tested and to do this you can issue
-the following cmd:
-bash: vendor/bin/phpunit --testdox
-
-It works nice if the tests are well descriptive:
-ClassName
- - methodName
-   - Test case description
-
-So, the test with key --testdox
-would output a kind of something like this for a test like "tests/CalculatorTest.php":
+Once test cases are added, you can run the tests using the same command:
+```bash
+vendor/bin/phpunit
+```
+For a more structured and readable output, use the `--testdox` flag:
+```bash
+vendor/bin/phpunit --testdox
+```
+This will produce output similar to:
+```
 PHPUnit 9.6.13 by Sebastian Bergmann and contributors.
 
 Calculator
@@ -31,12 +39,47 @@ Calculator
 Time: 00:00.038, Memory: 6.00 MB
 
 OK (1 test, 1 assertion)
--------------
+```
 
-Fuzz test PHP:
-run fuzz_test.php from bash or your favourite terminal
-![See fuzz testing in action and compare the results with web ui of the PHP calculator](comparing-the-result-from-the-webbrowser-with-one-of-the-fuzz-tests.png)
+## Fuzz Testing
+Fuzz testing helps uncover unexpected edge cases. Run the fuzz test script using:
+```bash
+php ./fuzz_tests/fuzz_test.php
+```
+This can be executed via Bash or any preferred terminal.
 
-Notes:
-- PHP 7.3 compatibility
-- Newer phpunit xmlns:xsi declaration (see previous in phpunit.xml.bak)
+**Example:**
+![See fuzz testing in action and compare the results with web UI of the PHP calculator](comparing-the-result-from-the-webbrowser-with-one-of-the-fuzz-tests.png)
+
+## PHP_CodeSniffer for Linting
+To check for coding standard violations:
+```bash
+vendor/bin/phpcs app/
+```
+To automatically fix issues (use with caution):
+```bash
+vendor/bin/phpcbf app/
+```
+
+Error and warning logs are stored in the `log/` folder:
+1. Before fixes
+2. After `phpcbf` execution
+3. Final result
+
+## Notes
+- PHP 7.3 compatibility has been replaced with PHP 7.4 due to the introduction of PHP Linter by PHP_CodeSniffer.
+- PHP 8.1+ compatibility has been tested.
+- The `phpunit.xml` file now includes a newer `xmlns:xsi` declaration (previous version available in `phpunit.xml.bak`).
+
+## Docker & Nginx Setup
+The project now includes a Docker container setup along with an Nginx configuration for seamless deployment. This allows for easier testing and deployment across different environments.
+
+To get started with Docker:
+```bash
+docker-compose up -d
+```
+This will start the necessary containers, including PHP and Nginx, for the application.
+
+---
+
+Enjoy using PHP-Calculator and happy testing! 🚀

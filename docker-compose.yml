@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8000:80"
+    volumes:
+      - .:/var/www/html/
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - php
+
+  php:
+    image: php:7.4-fpm
+    volumes:
+      - .:/var/www/html/
+
+volumes:
+  app:
+
+#first run
+#1 docker-compose --project-name calc up -d --build
+#2 docker-compose --project-name calc down
+#3 http://localhost:8000/app/index.php
+
+#use again, i.e. for subsequent runs, you can simply use:
+#1 docker-compose --project-name calc up -d
+#2 docker-compose --project-name calc down
+
+
+#php unit - made by composer via composer.json
+#vendor/bin/phpunit
+#PHPUnit 9.6.13 by Sebastian Bergmann and contributors.
+#....                                                             #   4 / 4 (100%)
+#Time: 00:00.197, Memory: 6.00 MB
+#OK (4 tests, 4 assertions)
