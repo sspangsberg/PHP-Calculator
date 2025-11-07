@@ -12,6 +12,8 @@
  */
 
 require_once "./Calculator.php";
+require_once "./Database.php";
+require_once "./ResultRepository.php";
 
 // If the submit button has been pressed
 if (isset($_POST['submit'])) {
@@ -29,6 +31,15 @@ if (isset($_POST['submit'])) {
         } elseif ($_POST['operation'] == 'divided by') {
             $total = $calculator->divide($_POST['number1'], $_POST['number2']);
         }
+
+        // Save result to database
+        $resultRepository = new \App\ResultRepository();
+        $resultRepository->save(
+            $_POST['number1'],
+            $_POST['number2'],
+            $_POST['operation'],
+            $total
+        );
 
         // Split long line to fix line length warning
         $operationString = "{$_POST['number1']} {$_POST['operation']} "

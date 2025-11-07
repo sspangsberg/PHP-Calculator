@@ -25,6 +25,22 @@
                 <input name="number2" type="text" class="form-control inputField" />
                 <input name="submit" type="submit" value="Calculate" class="btn btn-primary" />
             </form>
+
+            <?php
+                if(is_null ($resultRepository))
+                    $resultRepository = new \App\ResultRepository();
+                $allResults = $resultRepository->getAll();
+
+                if(count($allResults)>0){
+                    echo ""."<h3>Previous calculations:</h3>";
+                    foreach ($allResults as $k=>$result) {
+                        echo "<div class='resultItem'>".htmlspecialchars($result['number1']) . " " . htmlspecialchars($result['operation']) . "  " . htmlspecialchars($result['number2']) ." = ". $result['result'] . "</div>";
+                    }
+                } else {
+                    echo "<h3>No previous results</h3>";
+                }   
+
+            ?>
         </div>
     </body>
 </html>
