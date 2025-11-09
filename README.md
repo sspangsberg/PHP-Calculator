@@ -83,3 +83,27 @@ This will start the necessary containers, including PHP and Nginx, for the appli
 ---
 
 Enjoy using PHP-Calculator and happy testing! 🚀
+
+---
+
+## About CI/CD
+
+This is a major security benefit of multi-stage builds.
+
+🔒 Security Advantages:
+Attack Surface Reduction:
+dockerfile
+```FROM composer:latest AS builder
+# ← Has composer, git, unzip, bash, etc. (larger attack surface)
+
+FROM php:7.4-fpm-alpine  
+# ← Only has PHP + essential Alpine packages (minimal attack surface)
+COPY --from=builder /app/vendor /var/www/html/vendor
+
+What's NOT in the final image:
+❌ Composer itself
+❌ Git (used by composer to fetch packages)
+❌ Unzip (used by composer to extract packages)
+❌ Bash (Alpine uses ash instead)
+❌ SSL certificates for package fetching
+❌ Package metadata and build tools```

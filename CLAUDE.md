@@ -1,0 +1,1 @@
+When working with PHP code, assume PHP 7.3+ features are available.

@@ -2,7 +2,7 @@ version: '3'
 
 services:
   nginx:
-    image: nginx:latest
+    image: nginx:alpine  # ← Changed to alpine for consistency
     ports:
       - "8000:80"
     volumes:
@@ -12,12 +12,32 @@ services:
       - php
 
   php:
-    image: php:7.4-fpm
+    build: .  # ← Changed from image to build
     volumes:
       - .:/var/www/html/
+    depends_on:
+      - mysql
+    environment:
+      - DB_DRIVER=mysql
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_NAME=calculator
+      - DB_USER=root
+      - DB_PASSWORD=secret
+
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: calculator
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
 
 volumes:
   app:
+  mysql_data:
 
 #first run
 #1 docker-compose --project-name calc up -d --build
@@ -35,3 +55,12 @@ volumes:
 #....                                                             #   4 / 4 (100%)
 #Time: 00:00.197, Memory: 6.00 MB
 #OK (4 tests, 4 assertions)
+
+#apk update && apk add --no-cache nano #to install nano editor in alpine container
+#docker-compose exec php sh  #to enter the php container
+
+# docker ps --size
+# CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS         PORTS                               NAMES          SIZE
+# fc11393799a4   nginx:alpine   "/docker-entrypoint.…"   8 minutes ago   Up 7 minutes   0.0.0.0:8000->80/tcp                calc-nginx-1   1.09kB (virtual 52.8MB)
+# 80b8bc202e19   calc-php       "docker-php-entrypoi…"   8 minutes ago   Up 8 minutes   9000/tcp                            calc-php-1     5.17MB (virtual 103MB)
+# 35d3e6114c07   mysql:5.7      "docker-entrypoint.s…"   8 minutes ago   Up 8 minutes   33060/tcp, 0.0.0.0:3307->3306/tcp   calc-mysql-1   4B (virtual 581MB)
